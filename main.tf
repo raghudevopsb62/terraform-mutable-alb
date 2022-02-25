@@ -17,7 +17,7 @@ resource "aws_lb" "backend" {
   enable_deletion_protection = false
   subnets                    = ["subnet-0b673cb0f74714420", "subnet-01f5793a850edca81"]
   tags = {
-    Name = "frontend-${var.ENV}"
+    Name = "backend-${var.ENV}"
     env  = var.ENV
   }
 }
