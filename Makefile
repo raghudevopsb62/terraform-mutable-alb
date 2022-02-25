@@ -2,14 +2,22 @@ help:
 	@echo "Usage: make dev | make prod"
 
 dev dev-apply:
-	@cd env-dev && rm -rf .terraform && terraform init && terraform apply -auto-approve
+	rm -rf .terraform
+	terraform init -backened-config=env-dev/backened.tfvars
+	terraform apply -auto-approve -var-file=env-dev/main.tfvars
 
 prod prod-apply:
-	@cd env-prod && rm -rf .terraform && terraform init && terraform apply -auto-approve
+	rm -rf .terraform
+	terraform init -backened-config=env-dev/backened.tfvars
+	terraform apply -auto-approve -var-file=env-dev/main.tfvars
 
 dev-destroy:
-	@cd env-dev && rm -rf .terraform && terraform init && terraform destroy -auto-approve
+	rm -rf .terraform
+	terraform init -backened-config=env-dev/backened.tfvars
+	terraform destroy -auto-approve -var-file=env-dev/main.tfvars
 
 prod-destroy:
-	@cd env-prod && rm -rf .terraform && terraform init && terraform destroy -auto-approve
+	rm -rf .terraform
+	terraform init -backened-config=env-dev/backened.tfvars
+	terraform destroy -auto-approve -var-file=env-dev/main.tfvars
 

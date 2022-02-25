@@ -22,4 +22,3 @@ resource "aws_lb" "backend" {
   }
 }
 
-variable "ENV" {}
