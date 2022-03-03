@@ -17,7 +17,7 @@ resource "aws_lb" "backend" {
   load_balancer_type         = "application"
   enable_deletion_protection = false
   subnets                    = data.terraform_remote_state.vpc.outputs.PRIVATE_SUBNETS_IDS
-  security_groups            = [aws_security_group.allow-internal.id]
+  security_groups            = [aws_security_group.allow-private.id]
   tags = {
     Name = "backend-${var.ENV}"
     env  = var.ENV
