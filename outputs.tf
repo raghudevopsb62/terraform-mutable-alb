@@ -10,3 +10,7 @@ output "backend_listener_arn" {
   value = aws_lb_listener.backend.arn
 }
 
+output "backend_lb_address" {
+  value = aws_lb.backend.dns_name
+}
+
