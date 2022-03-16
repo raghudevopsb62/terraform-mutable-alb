@@ -8,6 +8,10 @@ pipeline {
     string(name: 'APPLY_ENV', defaultValue: 'dev', description: 'On which env you want to run?')
   }
 
+  options {
+    ansiColor('xterm')
+  }
+
   stages {
 
     stage('Terraform Init') {
